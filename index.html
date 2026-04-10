@@ -114,8 +114,9 @@
         }
 
         .project-thumbnail {
+            image-rendering: pixelated;
             width: 120px;
-            height: 80px;
+            height: auto;
             border-radius: 5px;
             object-fit: cover;
             cursor: pointer;
@@ -196,7 +197,17 @@
 
     <div class="container">
         <h1>Web Apps</h1>
-        
+
+        <div class="project-card">
+            <div class="project-content">
+                <h2><a href="https://searchlog.beyondbedrock.org/">SearchLog</a></h2>
+                <p class="description">Search in the Minecraft changelog articles across all versions.</p>
+            </div>
+            <img class="project-thumbnail"
+                 src="https://searchlog.beyondbedrock.org/preview.png"
+                 alt="SearchLog preview">
+        </div>
+
         <div class="project-card">
             <div class="project-content">
                 <h2><a href="web-editor.html">Web Editor</a></h2>
@@ -247,7 +258,7 @@
                 <p class="description">Convert textures into glyph-friendly formats.</p>
             </div>
             <img class="project-thumbnail"
-                 src="content/pictures/main/main.png"
+                 src="content/assets/images/TTG.png"
                  alt="Textures to Glyph preview">
         </div>
         <!-- Add more project cards using this template -->
