@@ -1,41 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Preload images -->
-    <link rel="preload" href="./assets/input.png" as="image">
-    <link rel="preload" href="./assets/tr.png" as="image">
-    <link rel="preload" href="./assets/white_button.png" as="image">
-    <link rel="preload" href="./assets/white_button_hover.png" as="image">
-    <link rel="preload" href="./assets/white_button_active.png" as="image">
-    <link rel="preload" href="./assets/dark_button.png" as="image">
-    <link rel="preload" href="./assets/dark_button_hover.png" as="image">
-    <link rel="preload" href="./assets/dark_button_active.png" as="image">
-    <link rel="preload" href="./assets/blue_button.png" as="image">
-    <link rel="preload" href="./assets/blue_button_hover.png" as="image">
-    <link rel="preload" href="./assets/blue_button_active.png" as="image">
-    <link rel="preload" href="./assets/red_button.png" as="image">
-    <link rel="preload" href="./assets/red_button_hover.png" as="image">
-    <link rel="preload" href="./assets/red_button_active.png" as="image">
-    <link rel="preload" href="./assets/upload.png" as="image">
-    <link rel="preload" href="./assets/copy.png" as="image">
-    
+    <link rel="preload" href="./assets/input.png" as="image" />
+    <link rel="preload" href="./assets/tr.png" as="image" />
+    <link rel="preload" href="./assets/white_button.png" as="image" />
+    <link rel="preload" href="./assets/white_button_hover.png" as="image" />
+    <link rel="preload" href="./assets/white_button_active.png" as="image" />
+    <link rel="preload" href="./assets/dark_button.png" as="image" />
+    <link rel="preload" href="./assets/dark_button_hover.png" as="image" />
+    <link rel="preload" href="./assets/dark_button_active.png" as="image" />
+    <link rel="preload" href="./assets/blue_button.png" as="image" />
+    <link rel="preload" href="./assets/blue_button_hover.png" as="image" />
+    <link rel="preload" href="./assets/blue_button_active.png" as="image" />
+    <link rel="preload" href="./assets/red_button.png" as="image" />
+    <link rel="preload" href="./assets/red_button_hover.png" as="image" />
+    <link rel="preload" href="./assets/red_button_active.png" as="image" />
+    <link rel="preload" href="./assets/upload.png" as="image" />
+    <link rel="preload" href="./assets/copy.png" as="image" />
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nine-Slice Viewer</title>
     <style>
-    @font-face {
-      font-family: Minecraftia;
-      src: url("../content/fonts/minecraft.otf") format("truetype");
-    }
-    @font-face {
-      font-family: MinecraftTen;
-      src: url("../content/fonts/minecraft-ten.ttf") format("truetype");
-    }
-    @font-face {
-      font-family: ar;
-      src: url("../content/fonts/arPix.ttf") format("truetype");
-    }
+      @font-face {
+        font-family: Minecraftia;
+        src: url("../content/fonts/minecraft.otf") format("truetype");
+      }
+      @font-face {
+        font-family: MinecraftTen;
+        src: url("../content/fonts/minecraft-ten.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: ar;
+        src: url("../content/fonts/arPix.ttf") format("truetype");
+      }
       body {
         font-family: Minecraftia, sans-serif;
         background-color: #222;
@@ -77,7 +76,8 @@
         cursor: se-resize;
       }
 
-      #sideBar, #light-controls {
+      #sideBar,
+      #light-controls {
         position: absolute;
         top: 10px;
         left: 10px;
@@ -91,7 +91,8 @@
         bottom: 10px;
       }
 
-      #zoomIn, #zoomOut {
+      #zoomIn,
+      #zoomOut {
         border-image-source: url("./assets/normal_button.png");
         border-image-slice: 2 2 4 2 fill;
         border-width: 4px 4px 8px 4px;
@@ -100,32 +101,36 @@
         cursor: pointer;
       }
 
-      #zoomIn:hover, #zoomOut:hover {
+      #zoomIn:hover,
+      #zoomOut:hover {
         border-image-source: url("./assets/normal_button_hover.png");
       }
 
-      #zoomIn:hover img, #zoomOut:hover img {
+      #zoomIn:hover img,
+      #zoomOut:hover img {
         filter: invert(1);
       }
 
-
-      #zoomIn:active, #zoomOut:active {
+      #zoomIn:active,
+      #zoomOut:active {
         border-image-source: url("./assets/normal_button_active.png");
         border-image-slice: 2 fill;
         border-width: 4px;
         margin-top: 4px;
       }
 
-      #zoomIn img, #zoomOut img {
+      #zoomIn img,
+      #zoomOut img {
         width: 30px;
         image-rendering: pixelated;
       }
 
-      #copyButton img, #custom-file-upload img {
+      #copyButton img,
+      #custom-file-upload img {
         width: 24px;
       }
 
-      #custom-file-upload img{
+      #custom-file-upload img {
         width: 24px;
       }
 
@@ -154,7 +159,6 @@
         border-image-slice: 3 1 1 1 fill;
         image-rendering: pixelated;
         border-style: solid;
-
       }
 
       #jsonOutput pre {
@@ -200,16 +204,15 @@
         border: #1e1e1f 4px solid;
       }
 
-      #originalImage {
+      #originalImageCanvas {
         image-rendering: pixelated;
-        image-orientation: from-image;
-        height: 50px;
-        max-width: 100%;
-
         position: absolute;
-        margin: 20px;
+        margin: 12px;
         top: 0;
         right: 0;
+        width: 120px;
+        height: 120px;
+        background: transparent;
       }
 
       .mode-button {
@@ -254,7 +257,8 @@
         border-image-source: url("./assets/dark_button.png");
       }
 
-      #darkModeButton img, #lightModeButton img {
+      #darkModeButton img,
+      #lightModeButton img {
         width: 18px;
         height: 18px;
       }
@@ -391,12 +395,11 @@
       }
 
       #zoomPercentage {
-        
         color: white;
         mix-blend-mode: difference;
         font-size: large;
       }
-      
+
       #left-side-sidebar {
         position: absolute;
         right: 0;
@@ -431,7 +434,11 @@
 
       .drop_zone_highlight {
         border-color: rgba(69, 160, 229, 1) !important;
-        background: linear-gradient(135deg, rgba(222, 121, 116, 0.3) 0%, rgba(69, 160, 229, 0.3) 100%) !important;
+        background: linear-gradient(
+          135deg,
+          rgba(222, 121, 116, 0.3) 0%,
+          rgba(69, 160, 229, 0.3) 100%
+        ) !important;
         color: white !important;
         transform: scale(1.05);
       }
@@ -464,8 +471,11 @@
       }
     </style>
     <script src="https://cdn.rawgit.com/exif-js/exif-js/master/exif.js"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6790880772028234"
-     crossorigin="anonymous"></script>
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6790880772028234"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div id="notification" style="display: none">JSON copied to clipboard!</div>
@@ -537,26 +547,63 @@
           </div>
         </div>
         <div id="drop_zone">
-          <svg id="drop_zone_icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="16" width="48" height="40" rx="4" stroke="currentColor" stroke-width="2" fill="none"/>
-            <path d="M32 8 L32 32 M24 24 L32 32 L40 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <line x1="16" y1="48" x2="48" y2="48" stroke="currentColor" stroke-width="2"/>
+          <svg
+            id="drop_zone_icon"
+            viewBox="0 0 64 64"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              x="8"
+              y="16"
+              width="48"
+              height="40"
+              rx="4"
+              stroke="currentColor"
+              stroke-width="2"
+              fill="none"
+            />
+            <path
+              d="M32 8 L32 32 M24 24 L32 32 L40 24"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <line
+              x1="16"
+              y1="48"
+              x2="48"
+              y2="48"
+              stroke="currentColor"
+              stroke-width="2"
+            />
           </svg>
           <div>Drop image here</div>
-          <div style="font-size: 10px; opacity: 0.7;">or click to browse</div>
+          <div style="font-size: 10px; opacity: 0.7">or click to browse</div>
         </div>
       </div>
       <div id="left-side">
         <div id="editor">
           <div id="preview">
             <div id="sideBar">
-              <button id="copyButton"><img src="./assets/copy.png"></button>
-              <label for="textureUpload" id="custom-file-upload"><img src="./assets/upload.png" alt=/></label>
+              <button id="copyButton"><img src="./assets/copy.png" /></button>
+              <label for="textureUpload" id="custom-file-upload"
+                ><img src="./assets/upload.png" alt=""
+              /></label>
               <input type="file" id="textureUpload" accept="image/*" />
-              <button id="darkModeButton" class="mode-button"><img src="./assets/dark.png" alt="🌙"></button>
-              <button id="lightModeButton" class="mode-button"><img src="./assets/light.png" alt="🔆"></button>
-              <button id="zoomIn"><img src="./assets/zoom_in.png" alt="+"></button>
-              <button id="zoomOut"><img src="./assets/zoom_out.png" alt="-"></button>
+              <button id="darkModeButton" class="mode-button">
+                <img src="./assets/dark.png" alt="🌙" />
+              </button>
+              <button id="lightModeButton" class="mode-button">
+                <img src="./assets/light.png" alt="🔆" />
+              </button>
+              <button id="zoomIn">
+                <img src="./assets/zoom_in.png" alt="+" />
+              </button>
+              <button id="zoomOut">
+                <img src="./assets/zoom_out.png" alt="-" />
+              </button>
               <div id="zoomPercentage">100%</div>
             </div>
             <div class="resizable-canvas-container">
@@ -564,7 +611,7 @@
             </div>
           </div>
         </div>
-        <img id="originalImage" src="" />
+        <canvas id="originalImageCanvas"></canvas>
       </div>
     </div>
     <script>
@@ -598,7 +645,10 @@
       const sliceBottom = document.getElementById("sliceBottom");
       const scaledWidth = document.getElementById("scaledWidth");
       const scaledHeight = document.getElementById("scaledHeight");
-      const originalImage = document.getElementById("originalImage");
+      const originalImageCanvas = document.getElementById(
+        "originalImageCanvas"
+      );
+      const originalImageCtx = originalImageCanvas.getContext("2d");
       const scaledCanvas = document.getElementById("scaledCanvas");
       const jsonConfig = document.getElementById("jsonConfig");
       const zoomSlider = document.getElementById("zoomSlider");
@@ -611,19 +661,27 @@
       const zoomPercentage = document.getElementById("zoomPercentage");
 
       zoomIn.addEventListener("click", () => {
-        const value = Number(scaledCanvas.style.transform == "" ? "1" : scaledCanvas.style.transform.match(/scale\((.*?)\)/)[1]);        
+        const value = Number(
+          scaledCanvas.style.transform == ""
+            ? "1"
+            : scaledCanvas.style.transform.match(/scale\((.*?)\)/)[1]
+        );
         scaledCanvas.style.transform = `scale(${value + 0.1})`;
 
         zoomPercentage.textContent = `${Math.round(Number(scaledCanvas.style.transform == "" ? "1" : scaledCanvas.style.transform.match(/scale\((.*?)\)/)[1]) * 100)}%`;
-      })
+      });
 
       zoomOut.addEventListener("click", () => {
-        const value = Number(scaledCanvas.style.transform == "" ? "1" : scaledCanvas.style.transform.match(/scale\((.*?)\)/)[1]);
+        const value = Number(
+          scaledCanvas.style.transform == ""
+            ? "1"
+            : scaledCanvas.style.transform.match(/scale\((.*?)\)/)[1]
+        );
         if (value <= 0.2) return;
         scaledCanvas.style.transform = `scale(${value - 0.1})`;
 
         zoomPercentage.textContent = `${Math.round(Number(scaledCanvas.style.transform == "" ? "1" : scaledCanvas.style.transform.match(/scale\((.*?)\)/)[1]) * 100)}%`;
-      })
+      });
 
       const editor = document.getElementById("editor");
 
@@ -639,7 +697,8 @@
           const reader = new FileReader();
           reader.onload = function (e) {
             image.onload = function () {
-              originalImage.src = e.target.result;
+              originalImageCanvas.width = image.width;
+              originalImageCanvas.height = image.height;
               update();
             };
             image.src = e.target.result;
@@ -753,7 +812,7 @@
       }
 
       function update() {
-        drawSliceLines();
+        drawOriginalGuides();
         const nineslice = {
           left: parseInt(sliceLeft.value),
           top: parseInt(sliceTop.value),
@@ -777,15 +836,25 @@
       }
 
       function updateJsonOutput(nineslice) {
-          const isUniform = nineslice.top === nineslice.left && nineslice.right === nineslice.left && nineslice.bottom === nineslice.left;
-          jsonConfig.textContent = customStringify(
-            {
-              nineslice_size:isUniform ? nineslice.left : [nineslice.left,nineslice.top,nineslice.right,nineslice.bottom],
-              base_size: [image.width, image.height],
-            },
-            null,
-            1
-          );
+        const isUniform =
+          nineslice.top === nineslice.left &&
+          nineslice.right === nineslice.left &&
+          nineslice.bottom === nineslice.left;
+        jsonConfig.textContent = customStringify(
+          {
+            nineslice_size: isUniform
+              ? nineslice.left
+              : [
+                  nineslice.left,
+                  nineslice.top,
+                  nineslice.right,
+                  nineslice.bottom,
+                ],
+            base_size: [image.width, image.height],
+          },
+          null,
+          1
+        );
       }
 
       function customStringify(obj) {
@@ -803,7 +872,18 @@
           .replace(/\]"/g, "]");
       }
 
-      function drawPixelatedImage(ctx,image,srcX,srcY,srcW,srcH,destX,destY,destW,destH) {
+      function drawPixelatedImage(
+        ctx,
+        image,
+        srcX,
+        srcY,
+        srcW,
+        srcH,
+        destX,
+        destY,
+        destW,
+        destH
+      ) {
         const tempCanvas = document.createElement("canvas");
         tempCanvas.width = destW;
         tempCanvas.height = destH;
@@ -819,128 +899,245 @@
         const right = baseSize.width - nineslice.right;
         const bottom = baseSize.height - nineslice.bottom;
 
-        drawPixelatedImage(scaledContext,image,0,0,left,top,0,0,left,top);
-        drawPixelatedImage(scaledContext,image,right,0,baseSize.width - right,top,newWidth - (baseSize.width - right),0,baseSize.width - right,top); 
-        drawPixelatedImage(scaledContext,image,0,bottom,left,baseSize.height - bottom,0,newHeight - (baseSize.height - bottom),left,baseSize.height - bottom);
-        drawPixelatedImage(scaledContext,image,right,bottom,baseSize.width - right,baseSize.height - bottom,newWidth - (baseSize.width - right),newHeight - (baseSize.height - bottom),baseSize.width - right,baseSize.height - bottom); 
-        drawPixelatedImage(scaledContext,image,left,0,right - left,top,left,0,newWidth - (baseSize.width - right + left),top);
-        drawPixelatedImage(scaledContext,image,left,bottom,right - left,baseSize.height - bottom,left,newHeight - (baseSize.height - bottom),newWidth - (baseSize.width - right + left),baseSize.height - bottom);
-        drawPixelatedImage(scaledContext,image,0,top,left,bottom - top,0,top,left,newHeight - (baseSize.height - bottom + top));
-        drawPixelatedImage(scaledContext,image,right,top,baseSize.width - right,bottom - top,newWidth - (baseSize.width - right),top,baseSize.width - right,newHeight - (baseSize.height - bottom + top));  
-        drawPixelatedImage(scaledContext,image,left,top,right - left,bottom - top,left,top,newWidth - (baseSize.width - right + left),newHeight - (baseSize.height - bottom + top));
+        drawPixelatedImage(
+          scaledContext,
+          image,
+          0,
+          0,
+          left,
+          top,
+          0,
+          0,
+          left,
+          top
+        );
+        drawPixelatedImage(
+          scaledContext,
+          image,
+          right,
+          0,
+          baseSize.width - right,
+          top,
+          newWidth - (baseSize.width - right),
+          0,
+          baseSize.width - right,
+          top
+        );
+        drawPixelatedImage(
+          scaledContext,
+          image,
+          0,
+          bottom,
+          left,
+          baseSize.height - bottom,
+          0,
+          newHeight - (baseSize.height - bottom),
+          left,
+          baseSize.height - bottom
+        );
+        drawPixelatedImage(
+          scaledContext,
+          image,
+          right,
+          bottom,
+          baseSize.width - right,
+          baseSize.height - bottom,
+          newWidth - (baseSize.width - right),
+          newHeight - (baseSize.height - bottom),
+          baseSize.width - right,
+          baseSize.height - bottom
+        );
+        drawPixelatedImage(
+          scaledContext,
+          image,
+          left,
+          0,
+          right - left,
+          top,
+          left,
+          0,
+          newWidth - (baseSize.width - right + left),
+          top
+        );
+        drawPixelatedImage(
+          scaledContext,
+          image,
+          left,
+          bottom,
+          right - left,
+          baseSize.height - bottom,
+          left,
+          newHeight - (baseSize.height - bottom),
+          newWidth - (baseSize.width - right + left),
+          baseSize.height - bottom
+        );
+        drawPixelatedImage(
+          scaledContext,
+          image,
+          0,
+          top,
+          left,
+          bottom - top,
+          0,
+          top,
+          left,
+          newHeight - (baseSize.height - bottom + top)
+        );
+        drawPixelatedImage(
+          scaledContext,
+          image,
+          right,
+          top,
+          baseSize.width - right,
+          bottom - top,
+          newWidth - (baseSize.width - right),
+          top,
+          baseSize.width - right,
+          newHeight - (baseSize.height - bottom + top)
+        );
+        drawPixelatedImage(
+          scaledContext,
+          image,
+          left,
+          top,
+          right - left,
+          bottom - top,
+          left,
+          top,
+          newWidth - (baseSize.width - right + left),
+          newHeight - (baseSize.height - bottom + top)
+        );
       }
       function handleButtonClick(event, operation) {
         const numberControlDiv = event.target.parentElement;
-        const inputField = numberControlDiv.querySelector('input[type="number"]');
+        const inputField = numberControlDiv.querySelector(
+          'input[type="number"]'
+        );
         let value = parseInt(inputField.value);
 
-        if (operation === "increase") {value += 1;
+        if (operation === "increase") {
+          value += 1;
         } else if (operation === "decrease" && value > 0) value -= 1;
 
         inputField.value = value;
         update(); // Call the update function to apply the changes
       }
 
-      document.querySelectorAll(".increase").forEach((button) => {button.addEventListener("click", (event) => {handleButtonClick(event, "increase");});});
-      document.querySelectorAll(".decrease").forEach((button) => {button.addEventListener("click", (event) => {handleButtonClick(event, "decrease");});});
+      document.querySelectorAll(".increase").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          handleButtonClick(event, "increase");
+        });
+      });
+      document.querySelectorAll(".decrease").forEach((button) => {
+        button.addEventListener("click", (event) => {
+          handleButtonClick(event, "decrease");
+        });
+      });
       document.addEventListener("DOMContentLoaded", () => {
-  const preview = document.getElementById("preview");
-  const rightSide = document.getElementById("right-side");
-  const scaledWidthInput = document.getElementById("scaledWidth");
-  const scaledHeightInput = document.getElementById("scaledHeight");
+        const preview = document.getElementById("preview");
+        const rightSide = document.getElementById("right-side");
+        const scaledWidthInput = document.getElementById("scaledWidth");
+        const scaledHeightInput = document.getElementById("scaledHeight");
 
-  let isDragging = false;
-  let startX = 0;
-  let startY = 0;
-  let initialWidth = 0;
-  let initialHeight = 0;
+        let isDragging = false;
+        let startX = 0;
+        let startY = 0;
+        let initialWidth = 0;
+        let initialHeight = 0;
 
-  function startDrag(event) {
-    isDragging = true;
+        function startDrag(event) {
+          isDragging = true;
 
-    // Handle both touch and mouse events
-    const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-    const clientY = event.touches ? event.touches[0].clientY : event.clientY;
+          // Handle both touch and mouse events
+          const clientX = event.touches
+            ? event.touches[0].clientX
+            : event.clientX;
+          const clientY = event.touches
+            ? event.touches[0].clientY
+            : event.clientY;
 
-    startX = clientX;
-    startY = clientY;
-    initialWidth = parseInt(scaledWidthInput.value, 10);
-    initialHeight = parseInt(scaledHeightInput.value, 10);
+          startX = clientX;
+          startY = clientY;
+          initialWidth = parseInt(scaledWidthInput.value, 10);
+          initialHeight = parseInt(scaledHeightInput.value, 10);
 
-    document.addEventListener("mousemove", drag);
-    document.addEventListener("touchmove", drag);
+          document.addEventListener("mousemove", drag);
+          document.addEventListener("touchmove", drag);
 
-    document.addEventListener("mouseup", stopDrag);
-    document.addEventListener("touchend", stopDrag);
-  }
+          document.addEventListener("mouseup", stopDrag);
+          document.addEventListener("touchend", stopDrag);
+        }
 
-  function drag(event) {
-    if (!isDragging) return;
+        function drag(event) {
+          if (!isDragging) return;
 
-    // Handle both touch and mouse events
-    const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-    const clientY = event.touches ? event.touches[0].clientY : event.clientY;
+          // Handle both touch and mouse events
+          const clientX = event.touches
+            ? event.touches[0].clientX
+            : event.clientX;
+          const clientY = event.touches
+            ? event.touches[0].clientY
+            : event.clientY;
 
-    const dx = clientX - startX;
-    const dy = clientY - startY;
+          const dx = clientX - startX;
+          const dy = clientY - startY;
 
-    const newWidth = initialWidth + dx;
-    const newHeight = initialHeight + dy;
+          const newWidth = initialWidth + dx;
+          const newHeight = initialHeight + dy;
 
-    scaledWidthInput.value = newWidth;
-    scaledHeightInput.value = newHeight;
+          scaledWidthInput.value = newWidth;
+          scaledHeightInput.value = newHeight;
 
-    update(); // Call update to adjust the canvas based on the new size
-  }
+          update(); // Call update to adjust the canvas based on the new size
+        }
 
-  function stopDrag() {
-    isDragging = false;
-    document.removeEventListener("mousemove", drag);
-    document.removeEventListener("touchmove", drag);
-    document.removeEventListener("mouseup", stopDrag);
-    document.removeEventListener("touchend", stopDrag);
-  }
+        function stopDrag() {
+          isDragging = false;
+          document.removeEventListener("mousemove", drag);
+          document.removeEventListener("touchmove", drag);
+          document.removeEventListener("mouseup", stopDrag);
+          document.removeEventListener("touchend", stopDrag);
+        }
 
-  // Add event listeners for both mouse and touch events
-  preview.addEventListener("mousedown", startDrag);
-  preview.addEventListener("touchstart", startDrag);
-});
+        // Add event listeners for both mouse and touch events
+        preview.addEventListener("mousedown", startDrag);
+        preview.addEventListener("touchstart", startDrag);
+      });
 
-function drawSliceLines() {
-  // Clear the canvas
-  scaledContext.clearRect(0, 0, scaledCanvas.width, scaledCanvas.height);
+      function drawOriginalGuides() {
+        if (!image.src || image.width === 0) return;
 
-  // Draw the uploaded image onto the canvas
-  scaledContext.drawImage(image, 0, 0, scaledCanvas.width, scaledCanvas.height);
+        const displaySize = 120;
+        originalImageCanvas.width = displaySize;
+        originalImageCanvas.height = displaySize;
 
-  // Get slice values
-  const left = parseInt(sliceLeft.value);
-  const top = parseInt(sliceTop.value);
-  const right = parseInt(sliceRight.value);
-  const bottom = parseInt(sliceBottom.value);
+        const scaleX = displaySize / image.width;
+        const scaleY = displaySize / image.height;
 
-  // Calculate the actual positions in the scaled image
-  const leftPos = (left / image.width) * scaledCanvas.width;
-  const topPos = (top / image.height) * scaledCanvas.height;
-  const rightPos = scaledCanvas.width - (right / image.width) * scaledCanvas.width;
-  const bottomPos = scaledCanvas.height - (bottom / image.height) * scaledCanvas.height;
+        originalImageCtx.clearRect(0, 0, displaySize, displaySize);
+        originalImageCtx.imageSmoothingEnabled = false;
+        originalImageCtx.drawImage(image, 0, 0, displaySize, displaySize);
 
-  // Set the line style
-  scaledContext.strokeStyle = 'red';
-  scaledContext.lineWidth = 2;
+        const leftPos = parseInt(sliceLeft.value) * scaleX;
+        const topPos = parseInt(sliceTop.value) * scaleY;
+        const rightPos = displaySize - parseInt(sliceRight.value) * scaleX;
+        const bottomPos = displaySize - parseInt(sliceBottom.value) * scaleY;
 
-  // Draw the slice lines
-  scaledContext.beginPath();
-  scaledContext.moveTo(leftPos, 0);
-  scaledContext.lineTo(leftPos, scaledCanvas.height);
-  scaledContext.moveTo(rightPos, 0);
-  scaledContext.lineTo(rightPos, scaledCanvas.height);
-  scaledContext.moveTo(0, topPos);
-  scaledContext.lineTo(scaledCanvas.width, topPos);
-  scaledContext.moveTo(0, bottomPos);
-  scaledContext.lineTo(scaledCanvas.width, bottomPos);
-  scaledContext.stroke();
-}
+        originalImageCtx.globalCompositeOperation = "difference";
+        originalImageCtx.strokeStyle = "white";
+        originalImageCtx.lineWidth = 1;
+
+        originalImageCtx.beginPath();
+        originalImageCtx.moveTo(leftPos, 0);
+        originalImageCtx.lineTo(leftPos, displaySize);
+        originalImageCtx.moveTo(rightPos, 0);
+        originalImageCtx.lineTo(rightPos, displaySize);
+        originalImageCtx.moveTo(0, topPos);
+        originalImageCtx.lineTo(displaySize, topPos);
+        originalImageCtx.moveTo(0, bottomPos);
+        originalImageCtx.lineTo(displaySize, bottomPos);
+        originalImageCtx.stroke();
+      }
     </script>
   </body>
 </html>
